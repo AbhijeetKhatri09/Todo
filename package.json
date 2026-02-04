@@ -1,0 +1,35 @@
+{
+  "name": "todo-auth-app",
+  "version": "1.0.0",
+  "description": "Todo app with authentication and session management",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server/index.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "build:client": "cd client && npm run build",
+    "start": "npm run server",
+    "install-all": "npm install && cd client && npm install",
+    "deploy:vercel": "vercel --prod",
+    "deploy:netlify": "cd client && npm run build && netlify deploy --prod --dir=build",
+    "deploy:github": "git add . && git commit -m 'Deploy to GitHub Pages' && git push origin main"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "express-validator": "^7.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "concurrently": "^8.2.2"
+  },
+  "keywords": ["todo", "authentication", "jwt", "express", "react"],
+  "author": "",
+  "license": "MIT"
+}
